@@ -33,8 +33,9 @@ client.on('disconnect', message => {
 client.on('message', message => {
   if (config.READING_CHANNELS.includes(message.channel.id)) {
     let content = message.content;
+     content += client.channels.get(message.channel.id);
     message.attachments.forEach(attachment => {
-      content += '\n' + attachment.proxyURL;
+      content += '\n' + attachment.proxyURL;     
     });
 
     config.WRITING_CHANNELS.forEach(channel => {

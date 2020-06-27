@@ -33,7 +33,7 @@ client.on('disconnect', message => {
 client.on('message', message => {
   if (config.READING_CHANNELS.includes(message.channel.id)) {
     
-    let content = '**'+message.channel.parent+'**\n';
+    let content = '**'+message.channel.parent.replace('#','')+'**\n';
         content += client.channels.get(message.channel.id)+'\n';
         content += message.content;
         message.attachments.forEach(attachment => {

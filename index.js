@@ -32,11 +32,11 @@ client.on('disconnect', message => {
 
 client.on('message', message => {
   if (config.READING_CHANNELS.includes(message.channel.id)) {
-    let content = message.content;
-     content += client.channels.get(message.channel.id);
-    message.attachments.forEach(attachment => {
-      content += '\n' + attachment.proxyURL;     
-    });
+    let content = client.channels.get(message.channel.id)+'\n';
+        content += message.content;
+        message.attachments.forEach(attachment => {
+          content += '\n' + attachment.proxyURL;     
+        });
 
     config.WRITING_CHANNELS.forEach(channel => {
       client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {

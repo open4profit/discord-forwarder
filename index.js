@@ -34,7 +34,7 @@ client.on('message', message => {
   if (config.READING_CHANNELS.includes(message.channel.id)) {
     
     let content = '**'+message.channel.parent+'**\n';
-        content += client.channels.get(message.channel.id)+'\n';
+        content += client.channels.get(message.channel.id).then(channel => console.log(channel.name))+'\n';
         content += message.content;
         message.attachments.forEach(attachment => {
           content += '\n' + attachment.proxyURL;     

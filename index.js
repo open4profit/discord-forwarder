@@ -34,11 +34,11 @@ client.on('message', message => {
   if (config.READING_CHANNELS.includes(message.channel.id)) {
     
     const channel = client.channels.get(message.channel.id)
-    let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}` 
-   
-       message.attachments.forEach(attachment => {
-  content += `\n ${attachment.proxyURL} `  
-})
+    let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}`  
+    message.attachments.forEach(attachment => {
+      let string = `\n ${attachment.proxyURL} ` 
+      content += string.replace("[1]","");
+    })
 
     config.WRITING_CHANNELS.forEach(channel => {
       client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {

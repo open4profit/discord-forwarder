@@ -40,7 +40,7 @@ client.on('message', message => {
   })
 
     config.WRITING_CHANNELS.forEach(channel => {
-      client.channels.get(channel).send(content, {embed: message.embeds}).catch(err => {
+      client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {
         console.error(err);
       });
     });

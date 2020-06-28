@@ -1,4 +1,4 @@
-# viossat/discord-forwarder
+# open4profit/discord-forwarder
 
 Forward Discord channels to others channels or webhooks.
 

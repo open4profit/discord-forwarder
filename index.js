@@ -37,7 +37,7 @@ client.on('message', message => {
     let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}\n`   
     message.attachments.forEach(attachment => {
       let string = `${attachment.ProxyUrl}`
-    content += string.replace('[1]','') 
+    content += string.replace('[1','') 
   })
 
     config.WRITING_CHANNELS.forEach(channel => {

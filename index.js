@@ -34,7 +34,8 @@ client.on('message', message => {
   if (config.READING_CHANNELS.includes(message.channel.id)) {
     
     const channel = client.channels.get(message.channel.id)
-    let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}`  
+    let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}`
+    content += `Helloworld.replace('world','')`
     message.attachments.forEach(attachment => {
     content += `\n ${attachment.ProxyUrl}`  
   })

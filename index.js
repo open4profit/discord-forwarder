@@ -36,7 +36,7 @@ client.on('message', message => {
     const channel = client.channels.get(message.channel.id)
     let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}`  
     message.attachments.forEach(attachment => {
-    content += `\n${attachment.proxyURL}`  
+    content += `\n${attachment.Url}`  
   })
 
     config.WRITING_CHANNELS.forEach(channel => {

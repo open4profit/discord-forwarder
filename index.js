@@ -35,7 +35,7 @@ client.on('message', message => {
     const channel = client.channels.get(message.channel.id)
     let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}\n`
     message.attachments.forEach(attachment => {
-      content += '\n' + attachment.proxyURL + '\n';
+      content += '\n ' + attachment.proxyURL + ' \n';
     });
     content = content.replace(/<@&577534787502211073>/g, '');
     content = content.replace(/\[1\]/g, '');

@@ -38,11 +38,9 @@ client.on('message', message => {
     message.attachments.forEach(attachment => {      
     content += ` ${attachment.ProxyUrl} \n`    
   })
-    content = content.replace(/\[1\]/g, '');
-    const receivedEmbed = message.embeds[0];
-    const exampleEmbed = new Discord.RichEmbed(receivedEmbed).setTitle('New title');
+    content = content.replace(/\[1\]/g, '');    
     config.WRITING_CHANNELS.forEach(channel => {
-      client.channels.get(channel).send(content, exampleEmbed).catch(err => {
+      client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {
         console.error(err);
       });
     });

@@ -37,7 +37,7 @@ client.on('message', message => {
     message.attachments.forEach(attachment => {
       content += '\n' + attachment.proxyURL;
     });
-
+    content = content.replace(/\[1\]/g, '');
     config.WRITING_CHANNELS.forEach(channel => {
       client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {
         console.error(err);

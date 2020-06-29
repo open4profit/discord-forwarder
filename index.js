@@ -40,7 +40,7 @@ client.on('message', message => {
   })
     content = content.replace(/\[1\]/g, '');    
     config.WRITING_CHANNELS.forEach(channel => {
-      client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {
+      client.channels.get(channel).send(content, ${embed: message.embeds[0]}).catch(err => {
         console.error(err);
       });
     });

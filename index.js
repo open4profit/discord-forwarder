@@ -37,10 +37,8 @@ client.on('message', message => {
     let content = `**${message.channel.parent.name}**\n${channel.name}\n${message.content}\n`   
     message.attachments.forEach(attachment => {      
     content += ` ${attachment.ProxyUrl} \n`    
-  })
-    content = content.replace('<@&577534787502211073>', '');
-    content = content.replace(/\[1\]/g, '');
-    
+  })    
+    content = content.replace(/\[1\]/g, '');    
     config.WRITING_CHANNELS.forEach(channel => {
       client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {
         console.error(err);

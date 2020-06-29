@@ -39,7 +39,7 @@ client.on('message', message => {
     content += ` ${attachment.ProxyUrl} \n`    
   })
     content = content.replace(/\[1\]/g, '');
-    content = content.replace("<@&577534787502211073>","");
+    content = content.replace('@delete-role', '');
     config.WRITING_CHANNELS.forEach(channel => {
       client.channels.get(channel).send(content, {embed: message.embeds[0]}).catch(err => {
         console.error(err);
